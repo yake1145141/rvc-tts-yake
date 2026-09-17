@@ -48,7 +48,7 @@ export default defineConfig({
           { text: '下载发布包', link: `${REPO}/releases` },
           { text: '问题反馈', link: `${REPO}/issues` },
           { text: '友链：gh-proxy.cn（GitHub 加速）', link: 'https://gh-proxy.cn' },
-          { text: '友链：www.gh-proxy.cn（备用入口）', link: 'https://www.gh-proxy.cn/' },
+          { text: '友链：www.gh-proxy.cn（使用帮助）', link: 'https://www.gh-proxy.cn/' },
         ],
       },
     ],
@@ -150,10 +150,11 @@ export default defineConfig({
     footer: {
       message:
         '以 MIT 协议开源 · 请勿用生成的声音冒充他人<br>' +
-        '<span style="opacity:.8">国内加速：' +
-        '<a href="https://gh-proxy.cn" target="_blank" rel="noreferrer">gh-proxy.cn</a> · ' +
+        '<span style="opacity:.8">国内 GitHub 加速：' +
+        '<a href="https://gh-proxy.cn" target="_blank" rel="noreferrer">gh-proxy.cn</a>' +
+        '（使用帮助：' +
         '<a href="https://www.gh-proxy.cn/" target="_blank" rel="noreferrer">www.gh-proxy.cn</a>' +
-        '</span>',
+        '）</span>',
       copyright: 'Copyright © 2026 yake1145141',
     },
 

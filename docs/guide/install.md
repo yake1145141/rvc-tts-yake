@@ -11,7 +11,7 @@ git clone https://github.com/yake1145141/voice-tts-system.git
 git clone https://gh-proxy.cn/https://github.com/yake1145141/voice-tts-system.git
 ```
 
-加速站：[gh-proxy.cn](https://gh-proxy.cn) · 备用入口 [www.gh-proxy.cn](https://www.gh-proxy.cn/)
+加速站：[gh-proxy.cn](https://gh-proxy.cn) · 使用帮助：[www.gh-proxy.cn](https://www.gh-proxy.cn/)
 
 本文档后面所有 `git clone` 命令都可以这样加前缀。
 :::

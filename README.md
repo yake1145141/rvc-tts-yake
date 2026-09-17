@@ -17,7 +17,7 @@ git clone https://github.com/yake1145141/rvc-tts-yake.git
 git clone https://gh-proxy.cn/https://github.com/yake1145141/rvc-tts-yake.git
 ```
 
-> 加速服务由 **[gh-proxy.cn](https://gh-proxy.cn)** 提供（备用入口 **[www.gh-proxy.cn](https://www.gh-proxy.cn/)**）。
+> 加速服务由 **[gh-proxy.cn](https://gh-proxy.cn)** 提供，使用帮助见 **[www.gh-proxy.cn](https://www.gh-proxy.cn/)**。
 
 ## 本地开发
 

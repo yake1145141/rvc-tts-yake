@@ -5,7 +5,7 @@
 | 站点 | 地址 | 说明 |
 | --- | --- | --- |
 | **gh-proxy.cn** | <https://gh-proxy.cn> | GitHub 国内加速服务，拉代码 / Release / raw 文件都很快 |
-| **www.gh-proxy.cn** | <https://www.gh-proxy.cn/> | 上面这个加速站的备用入口，两个都能用 |
+| **www.gh-proxy.cn** | <https://www.gh-proxy.cn/> | 上面这个加速站的**使用帮助页**，讲怎么加前缀、支持哪些地址 |
 
 本站点以及整个 voice-tts-system 项目都从这个加速站受益，在此特别致谢。
 

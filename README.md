@@ -3,7 +3,7 @@
 这是 [voice-tts-system](https://github.com/yake1145141/voice-tts-system) 的官方文档站，
 基于 [VitePress](https://vitepress.dev/) 构建，托管在 GitHub Pages。
 
-**在线阅读：<https://rvc-tts.top/>**
+**在线阅读：<https://tts.axzt.top/>**
 
 ## 本地开发
 

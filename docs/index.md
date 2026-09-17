@@ -95,21 +95,21 @@ features:
   <div>
     <h4>第一次部署</h4>
     <p>先看硬件够不够，再挑一种部署方式。</p>
-    <p><a href="/guide/install">部署方式怎么选 →</a></p>
+    <p><a href="./guide/install">部署方式怎么选 →</a></p>
   </div>
   <div>
     <h4>已经装好服务端</h4>
     <p>把 AstrBot 插件接上，填地址和密钥就能用。</p>
-    <p><a href="/client/astrbot">配置 AstrBot 插件 →</a></p>
+    <p><a href="./client/astrbot">配置 AstrBot 插件 →</a></p>
   </div>
   <div>
     <h4>要写自己的调用</h4>
     <p>HTTP 接口文档，含请求响应示例和错误码。</p>
-    <p><a href="/reference/api">HTTP 接口 →</a></p>
+    <p><a href="./reference/api">HTTP 接口 →</a></p>
   </div>
   <div>
     <h4>遇到问题了</h4>
     <p>常见报错、原因和解决办法都在这里。</p>
-    <p><a href="/guide/troubleshooting">错误码速查 →</a></p>
+    <p><a href="./guide/troubleshooting">错误码速查 →</a></p>
   </div>
 </div>

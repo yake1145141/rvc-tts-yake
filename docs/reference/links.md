@@ -7,7 +7,7 @@
 | 服务端仓库 | <https://github.com/yake1145141/voice-tts-system> |
 | 服务端发布包 | <https://github.com/yake1145141/voice-tts-system/releases> |
 | AstrBot 插件仓库 | <https://github.com/yake1145141/astrbot_plugin_voice_reply> |
-| 本文档站源码 | <https://github.com/yake1145141/yake1145141.github.io> |
+| 本文档站源码 | <https://github.com/yake1145141/rvc-tts-yake> |
 | 问题反馈 | <https://github.com/yake1145141/voice-tts-system/issues> |
 
 ## 依赖的上游项目

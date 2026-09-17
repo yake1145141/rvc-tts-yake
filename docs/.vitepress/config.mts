@@ -2,15 +2,16 @@ import { defineConfig } from 'vitepress'
 
 const REPO = 'https://github.com/yake1145141/voice-tts-system'
 const PLUGIN_REPO = 'https://github.com/yake1145141/astrbot_plugin_voice_reply'
-const SITE_REPO = 'https://github.com/yake1145141/yake1145141.github.io'
+const SITE_REPO = 'https://github.com/yake1145141/rvc-tts-yake'
 
 export default defineConfig({
   lang: 'zh-CN',
   title: 'voice-tts-system',
   description: 'AstrBot AI 语音回复系统 —— Edge TTS + RVC 的完整部署教程、配置说明与接口文档',
 
-  // 这是 https://yake1145141.github.io/ 的根站点，所以 base 就是 /
-  base: '/',
+  // 这是项目站点（不是 xxx.github.io 根站点），所以 base 必须是仓库名
+  // 线上地址：https://yake1145141.github.io/rvc-tts-yake/
+  base: '/rvc-tts-yake/',
   cleanUrls: true,
   lastUpdated: true,
 

@@ -1,0 +1,16 @@
+# 依赖与构建产物
+node_modules/
+docs/.vitepress/dist/
+docs/.vitepress/cache/
+
+# 包管理器
+package-lock.json.bak
+pnpm-lock.yaml
+yarn.lock
+
+# 编辑器 / 系统
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+*.log

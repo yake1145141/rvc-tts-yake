@@ -1,0 +1,102 @@
+/* ==========================================================================
+   voice-tts-system 文档站自定义样式
+   配色沿用服务端网页控制台的绿色系，跟项目主视觉保持一致
+   ========================================================================== */
+
+:root {
+  --vp-c-brand-1: #2f9e44;
+  --vp-c-brand-2: #37b24d;
+  --vp-c-brand-3: #40c057;
+  --vp-c-brand-soft: rgba(64, 192, 87, 0.14);
+
+  --vp-c-tip-1: var(--vp-c-brand-1);
+  --vp-c-tip-soft: var(--vp-c-brand-soft);
+
+  --vp-home-hero-name-color: transparent;
+  --vp-home-hero-name-background: linear-gradient(120deg, #2f9e44 30%, #12b886);
+  --vp-home-hero-image-background-image: linear-gradient(-45deg, #40c05780 50%, #12b88680 50%);
+  --vp-home-hero-image-filter: blur(44px);
+}
+
+.dark {
+  --vp-c-brand-1: #51cf66;
+  --vp-c-brand-2: #40c057;
+  --vp-c-brand-3: #37b24d;
+  --vp-c-brand-soft: rgba(81, 207, 102, 0.16);
+}
+
+/* ---------- 首页 ---------- */
+
+.VPHomeHero .name,
+.VPHomeHero .text {
+  letter-spacing: -0.5px;
+}
+
+.VPFeature {
+  border-radius: 12px;
+}
+
+.VPFeature .icon {
+  font-size: 26px;
+}
+
+/* 首页「谁来用」两栏卡片 */
+.use-cases {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+  margin: 24px 0;
+}
+
+.use-cases > div {
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 12px;
+  padding: 18px 20px;
+  background: var(--vp-c-bg-soft);
+}
+
+.use-cases h4 {
+  margin: 0 0 8px;
+  font-size: 15px;
+  color: var(--vp-c-brand-1);
+}
+
+/* ---------- 正文 ---------- */
+
+/* 表格：列窄一点、紧凑一点，长表格在窄屏也能看 */
+.vp-doc table {
+  display: table;
+  width: 100%;
+  font-size: 14px;
+}
+
+.vp-doc th,
+.vp-doc td {
+  padding: 8px 12px;
+}
+
+/* 命令行代码块里的注释别太抢眼 */
+.vp-doc div[class*='language-'] code {
+  font-size: 13px;
+}
+
+/* 首页/正文里的大号提示块 */
+.vp-doc .custom-block {
+  border-radius: 10px;
+}
+
+/* ---------- 侧边栏 ---------- */
+
+/* 侧边栏分组标题稍微加点对比度，长目录更好扫 */
+.VPSidebarItem.level-0 > .item > .text {
+  font-weight: 700;
+  font-size: 14px;
+}
+
+/* ---------- 移动端 ---------- */
+
+@media (max-width: 640px) {
+  .use-cases {
+    grid-template-columns: 1fr;
+  }
+}

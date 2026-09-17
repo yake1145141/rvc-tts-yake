@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#40c057"/>
+      <stop offset="100%" stop-color="#12b886"/>
+    </linearGradient>
+  </defs>
+  <rect x="2" y="2" width="44" height="44" rx="12" fill="url(#g)"/>
+  <!-- 麦克风 -->
+  <rect x="19" y="11" width="10" height="17" rx="5" fill="#fff"/>
+  <path d="M14 24a10 10 0 0 0 20 0" fill="none" stroke="#fff" stroke-width="2.6"
+        stroke-linecap="round"/>
+  <path d="M24 34v4" stroke="#fff" stroke-width="2.6" stroke-linecap="round"/>
+  <!-- 声波 -->
+  <path d="M8 20v8M40 20v8" stroke="#fff" stroke-width="2.2" stroke-linecap="round" opacity=".75"/>
+</svg>

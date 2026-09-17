@@ -18,6 +18,8 @@ docker run --rm --gpus all nvidia/cuda:12.1.1-base-ubuntu22.04 nvidia-smi
 
 ```bash
 git clone https://github.com/yake1145141/voice-tts-system.git
+# 国内网络慢的话，改用加速地址：
+# git clone https://gh-proxy.cn/https://github.com/yake1145141/voice-tts-system.git
 cd voice-tts-system/deploy/docker
 
 # 1. 准备模型与配置

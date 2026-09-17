@@ -12,6 +12,8 @@
 ```bash
 # 1. 推脚本到手机
 git clone https://github.com/yake1145141/voice-tts-system.git
+# 国内网络慢的话，改用加速地址：
+# git clone https://gh-proxy.cn/https://github.com/yake1145141/voice-tts-system.git
 cd voice-tts-system
 adb push deploy/android/1_setup_rootfs.sh /data/local/tmp/
 

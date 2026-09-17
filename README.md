@@ -5,6 +5,20 @@
 
 **在线阅读：<https://rvc-tts.top/>**
 
+## 🇨🇳 国内拉取加速
+
+GitHub 直连慢或者连不上？在地址前面加上 `https://gh-proxy.cn/` 就能加速：
+
+```bash
+# 直连（国外网络）
+git clone https://github.com/yake1145141/rvc-tts-yake.git
+
+# 国内加速（推荐国内用户用这条）
+git clone https://gh-proxy.cn/https://github.com/yake1145141/rvc-tts-yake.git
+```
+
+> 加速服务由 **[gh-proxy.cn](https://gh-proxy.cn)** 提供（备用入口 **[www.gh-proxy.cn](https://www.gh-proxy.cn/)**）。
+
 ## 本地开发
 
 ```bash

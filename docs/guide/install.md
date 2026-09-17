@@ -1,5 +1,21 @@
 # 部署方式怎么选
 
+::: tip 🇨🇳 国内网络先看这里
+GitHub 直连慢或者连不上，在地址前面加上 `https://gh-proxy.cn/` 就能加速：
+
+```bash
+# 直连
+git clone https://github.com/yake1145141/voice-tts-system.git
+
+# 国内加速（推荐国内用户）
+git clone https://gh-proxy.cn/https://github.com/yake1145141/voice-tts-system.git
+```
+
+加速站：[gh-proxy.cn](https://gh-proxy.cn) · 备用入口 [www.gh-proxy.cn](https://www.gh-proxy.cn/)
+
+本文档后面所有 `git clone` 命令都可以这样加前缀。
+:::
+
 五种方式都能跑出**完全一样**的服务，区别只在"你手头有什么机器"和"愿意花多少时间"。
 
 | 方式 | 适合场景 | 目标机需要 | 耗时 |

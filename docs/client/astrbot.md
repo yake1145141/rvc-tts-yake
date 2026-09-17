@@ -25,6 +25,8 @@ curl http://127.0.0.1:8080/api/health
 ```bash
 cd AstrBot/data/plugins
 git clone https://github.com/yake1145141/astrbot_plugin_voice_reply.git
+# 国内网络慢的话，改用加速地址：
+# git clone https://gh-proxy.cn/https://github.com/yake1145141/astrbot_plugin_voice_reply.git
 ```
 
 也可以用 AstrBot 插件市场安装，或者手动下载 zip 解压到同一位置。

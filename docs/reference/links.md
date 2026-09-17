@@ -1,5 +1,24 @@
 # 相关链接
 
+## 友链
+
+| 站点 | 地址 | 说明 |
+| --- | --- | --- |
+| **gh-proxy.cn** | <https://gh-proxy.cn> | GitHub 国内加速服务，拉代码 / Release / raw 文件都很快 |
+| **www.gh-proxy.cn** | <https://www.gh-proxy.cn/> | 上面这个加速站的备用入口，两个都能用 |
+
+本站点以及整个 voice-tts-system 项目都从这个加速站受益，在此特别致谢。
+
+**怎么用**：在任意 GitHub 地址前面加上 `https://gh-proxy.cn/` 即可。例如拉本项目的代码：
+
+```bash
+# 直连
+git clone https://github.com/yake1145141/voice-tts-system.git
+
+# 国内加速
+git clone https://gh-proxy.cn/https://github.com/yake1145141/voice-tts-system.git
+```
+
 ## 本项目
 
 | 内容 | 地址 |

@@ -81,6 +81,8 @@ no kernel image is available for execution on the device
 
 ```powershell
 git clone https://github.com/yake1145141/voice-tts-system.git
+# 国内网络慢的话，改用加速地址：
+# git clone https://gh-proxy.cn/https://github.com/yake1145141/voice-tts-system.git
 cd voice-tts-system
 
 powershell -ExecutionPolicy Bypass -File deploy\windows\build-bundle.ps1 `

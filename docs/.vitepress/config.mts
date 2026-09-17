@@ -9,18 +9,20 @@ export default defineConfig({
   title: 'voice-tts-system',
   description: 'AstrBot AI 语音回复系统 —— Edge TTS + RVC 的完整部署教程、配置说明与接口文档',
 
-  // 这是项目站点（不是 xxx.github.io 根站点），所以 base 必须是仓库名
-  // 线上地址：https://yake1145141.github.io/rvc-tts-yake/
-  base: '/rvc-tts-yake/',
+  // 绑了自定义域名 rvc-tts.top，站点直接跑在域名根路径下，所以 base 是 /
+  // （docs/public/CNAME 里的内容会原样进构建产物，GitHub Pages 靠它认域名）
+  base: '/',
   cleanUrls: true,
   lastUpdated: true,
 
   head: [
     ['link', { rel: 'icon', href: '/logo.svg' }],
+    ['link', { rel: 'canonical', href: 'https://rvc-tts.top/' }],
     ['meta', { name: 'theme-color', content: '#3fb950' }],
     ['meta', { property: 'og:type', content: 'website' }],
     ['meta', { property: 'og:title', content: 'voice-tts-system 文档' }],
     ['meta', { property: 'og:description', content: '把 AI 的文字回复自动变成指定音色的语音' }],
+    ['meta', { property: 'og:url', content: 'https://rvc-tts.top/' }],
   ],
 
   markdown: {

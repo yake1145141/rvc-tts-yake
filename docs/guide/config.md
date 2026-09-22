@@ -59,7 +59,14 @@ tts:
   volume: 0                # 音量百分比
   edge_pitch_hz: 0         # Edge TTS 原生音高，非必要不要改
   retries: 3               # 在线语音失败重试次数
+  edge_timeout: 60         # 单次在线语音的超时（秒）
 ```
+
+::: tip edge_timeout 是保命的
+`edge-tts` 库**自身没有任何超时**。不给它加这一层，微软接口一旦「接了连接却不回音频」，
+请求会永久挂住并拖死整个服务（v1.0.2 修复的 504 问题）。
+详见[所有请求都 504](/guide/troubleshooting#所有请求都-504-一直生成失败)。
+:::
 
 ### source 四个取值
 
@@ -191,12 +198,17 @@ queue:
   max_concurrent: 1        # 同时推理的任务数（RVC 底层库本身串行，建议保持 1）
   max_queue_size: 16       # 排队上限，超过返回 503
   timeout: 180             # 单任务超时（秒）；长文本会自动放宽
+  hard_timeout: 100        # 单次推理的硬上限（秒），必须小于 timeout
 ```
 
 ::: warning 不建议调大 max_concurrent
 RVC 推理库内部有全局状态，本身不支持并发。设大了容易出
 `'tuple' object has no attribute 'dtype'` 之类的怪问题。
 :::
+
+`hard_timeout` 是卡死自愈的阈值：单次推理超过它就判定进程卡死，服务端会主动退出，
+由 systemd（`Restart=always`）或 Windows 的 `守护启动.bat` 在几秒内拉起来。
+留空则默认 150s，并自动收敛到 `timeout - 5` 以内。
 
 ---
 

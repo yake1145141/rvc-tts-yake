@@ -118,6 +118,27 @@ systemctl restart tts-server     # 改完 config.yaml 重启
 
 接着去做 [验证](/guide/verify)，然后配置 [AstrBot 插件](/client/astrbot)。
 
+## 手工部署过的机器，补装 systemd 服务
+
+如果你当初不是用 `install.sh` 装的（比如直接解压免安装便携包、`nohup python3 main.py &`、
+`start_tts_server.sh`），系统里就没有 systemd 单元，`systemctl status tts-server` 会报
+`Unit tts-server.service could not be found.` —— 这只说明服务没被注册，服务本身可能是好的。
+
+补装一条命令，脚本会自动探测安装目录（先看运行中进程的 `cmdline`，再找 `/opt/tts-server` 等常见位置）、
+Python 解释器（venv / 便携包的 `python/bin/python3`）、端口（读 `config.yaml`），
+停掉手工起的旧进程，然后写入单元文件并启动：
+
+```bash
+sudo bash deploy/linux/install-systemd.sh
+# 自动探测失败时手动指定：目录 端口
+sudo bash deploy/linux/install-systemd.sh /opt/tts-server 8080
+```
+
+生成的单元带 `Restart=always` + `RestartSec=5`，配合服务端的卡死自愈
+（库卡死超过 `queue.hard_timeout` 会主动退出，由 systemd 秒级拉起）。
+
+跑完 `systemctl status tts-server` / `journalctl -u tts-server -f` 就都正常了。
+
 ## 卸载
 
 ```bash

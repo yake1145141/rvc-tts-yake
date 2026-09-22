@@ -49,6 +49,22 @@ Linux 安装脚本默认就装 cu121，不用管。
 同样是网络问题，已归类为可重试错误。如果这台机器长期连不上微软，
 建议直接把 `tts.source` 设成 `sapi`（Windows）或 `espeak`（Linux）走全离线。
 
+**Q：控制台里一堆 504，服务端「一直生成失败」，重启也只能好一会儿？**
+
+v1.0.2 之前的老问题，已在 v1.0.2 修复。根因是 `edge-tts` 这个库**自身没有任何超时**：
+微软接口一旦「接了连接却不回音频」，那句 `await communicate.save()` 就会永久挂住 ——
+不抛异常、不返回、也不释放推理锁，于是后面每个请求都在等锁，统统排到超时。
+
+v1.0.2 做了三层防护：
+
+* `tts.edge_timeout`（默认 60s）：单次在线语音的超时，卡住立刻抛错 → 自动重试 → 仍失败转离线语音
+* `queue.hard_timeout`（默认 100s）：单次推理的硬上限，超过就判定卡死，**主动退出进程**
+* 推理锁被占用超过硬上限，同样判定卡死并重启
+
+后两条要靠外部守护把进程拉起来：Linux 是 systemd 的 `Restart=always`，
+Windows 是 `守护启动.bat`。**用 `nohup` 或直接双击 `启动语音服务.bat` 起的进程不行** ——
+进程退出后没人拉起，表现为服务直接停掉。升级方式见[更新日志](/reference/changelog)。
+
 **Q：怎么完全离线使用？**
 
 * Windows：`tts.source: "sapi"`（用系统自带语音，无需额外安装）
@@ -104,7 +120,22 @@ fairseq，几乎必然失败。安装脚本会用独立运行时装 3.12，不�
 **Q：服务开机自启怎么配？**
 
 Linux 安装脚本已自动注册 systemd 服务（`systemctl enable --now tts-server`）。
-Windows 整合包用 `后台启动.bat`，或加进「任务计划程序」。
+Windows 整合包用 `守护启动.bat`（进程退出会自动拉起，等价于 systemd 的 `Restart=always`），
+或把 `后台启动.bat` 加进「任务计划程序」。
+
+**Q：`systemctl status tts-server` 提示 `Unit tts-server.service could not be found.`？**
+
+说明这台机器上**从来没有装过 systemd 单元文件**。只有 `deploy/linux/install.sh` 会注册服务，
+下面这些装法都不会：免安装便携包、`nohup python3 main.py &`、`start_tts_server.sh`、手动解压的 tar 包。
+
+补装只要一条命令（自动找安装目录 / Python / 端口，并停掉手工起的旧进程）：
+
+```bash
+sudo bash deploy/linux/install-systemd.sh
+# 也可以手动指定：sudo bash deploy/linux/install-systemd.sh /opt/tts-server 8080
+```
+
+详见 [Linux 一键安装](/guide/install-linux#手工部署过的机器补装-systemd-服务)。
 
 ---
 

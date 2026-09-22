@@ -3,6 +3,44 @@
 本项目遵循 [语义化版本](https://semver.org/lang/zh-CN/)。
 完整历史见 [GitHub Releases](https://github.com/yake1145141/voice-tts-system/releases)。
 
+## v1.0.2
+
+**修复**
+
+* **服务端「一直生成失败」（控制台全是 504）**。根因是 `edge-tts` 库自身没有任何超时：
+  微软接口一旦「接了连接却不回音频」，`await communicate.save()` 就永久挂住 ——
+  不抛异常、不返回、也不释放推理锁，于是后面每个请求都在等锁，全部排到超时
+  （实测出现过连续十几次请求 100% 超时）。现在：
+
+  * `tts.edge_timeout`（默认 60s）：单次在线语音的超时，卡住立刻抛错 → 重试 → 仍失败转离线语音
+  * `queue.hard_timeout`（默认 100s）：单次推理的硬上限，超过即判定卡死，**主动退出进程**
+  * 推理锁被占用超过硬上限，同样判定卡死并重启
+
+  卡在 C 层网络等待上的线程无法从 Python 层面中断，重启是唯一干净的恢复方式；
+  所以请务必用 systemd（Linux）或 `守护启动.bat`（Windows）托管。
+
+**新增**
+
+* `deploy/linux/install-systemd.sh`：给手工部署过的机器补装 systemd 服务，
+  修掉 `systemctl status tts-server` → `Unit tts-server.service could not be found.`。
+  自动探测安装目录 / Python（含便携包的 `python/bin/python3`）/ 端口，停掉手工起的进程。
+* Windows 整合包新增 **`守护启动.bat`**：进程退出 5 秒后自动重启，等价于 systemd 的 `Restart=always`
+* 卡死保护回归测试（超时补丁幂等 / 硬超时必须小于请求超时 / 卡死必触发重启）
+
+**配置新增**
+
+```yaml
+tts:
+  edge_timeout: 60      # 单次在线语音的超时（秒）
+queue:
+  hard_timeout: 100     # 单次库调用的硬上限（秒），超过判定卡死并重启服务
+```
+
+**修复（构建）**
+
+* `build_windows_bundle.ps1` 里循环变量 `$name` 覆盖了参数 `$Name`，
+  导致 `VERSION.txt` 的 `bundle:` 字段写成某个 .bat 文件名
+
 ## v1.0.1
 
 **修复**
